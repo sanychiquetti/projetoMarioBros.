@@ -1,6 +1,6 @@
 @media (max-width: 1200px) {
     body {
-        background-color: #f44336;
+       background-color: #f44336;
     }
 
     .fundo-video {
@@ -8,7 +8,7 @@
     }
 
     .container {
-        flex-wrap: wrap; /* aqui vamos quebrar o elemento para não criar barra de rolagem*/
+        flex-wrap: wrap;
         justify-content: center;
         height: auto;
         gap: 30px;

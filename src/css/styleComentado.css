@@ -1,0 +1,138 @@
+body {
+    font-family: 'Poppins';
+}
+
+.cabecalho {
+    display: flex; /*com o display flex os elementos ficam um ao lado do outro, no elemento pai (cabecalho seria o pai, a tag a e a nav, os filhos) */
+    justify-content: space-between; /* espaço entre os elementos*/
+    padding: 30px; /* espaçamento em todos os lados do elemento*/
+    max-width: 1440px;  /* aqui estou colocando uma medida máxima */
+    margin: 0 auto; /* aqui centralizamos o espaço que sobra da tela, devido a medida max que colocamos */
+}
+
+.cabecalho .logo {
+     width: 65px; /* alterar o tamanho de um elemento  */
+}
+
+.cabecalho .menu {
+    display: flex; /* colocando aqui no filho (.menu) iremos colocar uma li ao lado da outra */
+    align-items: center; /* aqui vamos alinhar os itens na vertical, mas precisamos dar espaço para isso, então colocar um height*/
+    height: 100%; /* aqui estamos colocando uma altura onde ele vai ocupar 100% da altura da tag pai, para o align-items funcionar */
+}
+
+.cabecalho nav li a {
+    font-weight: bold; /* peso da font*/
+    color: #ffffff; /*cor font*/
+    font-size: 25px; /* tamanho da font*/
+    padding: 10px 20px; /* espaçamentos do conteúdo, aqui estou estilizando top e base com 10px e as laterais com 20px*/
+    border-radius: 50px; /* aqui ele vai aparecer no site, apenas quando passarr o mouse em cima, com o comando hover*/ 
+    transition: 0,2s; /*para que a cor aparece de forma suave */
+}
+
+.cabecalho nav li a:hover {
+    background-color: #d5011d; /* aqui qdo passar o mouse em cima, ele vai aparecer com essa cor */ 
+}
+
+.container {
+    max-width: 1440px; 
+    margin: 0 auto;
+    display: flex;
+    align-items: center; /* precisa dar altura para que aqui funcione!!!, fazemos isso com o height*/
+    height: calc(100vh - 132px); /*o 100vh, dizemos que queremos que ele ocupe 100% da tela, com o calc, ele vai calcular a altura da tela, diminuir o tamanho do cabeçalho */
+    padding: 0 30px 30px;
+}
+
+.container .imagem-titulo {
+    max-width: 500px; /* dizemos a larg max que queremos, ela ajusta a altura de forma automática*/
+}
+
+.container .descricao {
+    color: #a8adb7;
+    width: 85%;
+    font-size: 18px;
+    margin: 30px 0;
+}
+
+.container .botao-trailer {
+    background-color: #ff0021;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 18px; 
+    font-weight: bold;
+    cursor: pointer; /* transforma o mouse em maozinha*/
+    border: none; /* tira a borda*/
+    text-transform: uppercase; /* transforma o texto em tudo maiúsculo*/
+    transition: 0.5s all ease-in-out; /*da movimento ao elemento, aumentando o tamanho, mas para funcionar, precisa colocar o comando hover */
+}
+
+.container .botao-trailer:hover {
+    transform: scale(1.1) 
+}
+
+.fundo-video {
+    position: absolute; /* aqui tiramos ele do contexto atual da tela, e cria uma "nova folha para esse elemento", como uma folha separada*/
+    z-index: -1; /* aqui colocamos o elemento para trás */
+    width: 100vw; /*colocamos ele em 100% da tela */
+    height: 100vh; /*colocamos ele em 100% da tela */
+    overflow: hidden; /*aqui ajustamos para que o video não transborde da tela, qdo dermos a altura do video */
+    display: flex; 
+    justify-content: center;
+}
+
+.fundo-video .video {
+    height: 100vh; /*aqui mudamos a altura do video (importante colocar o overflow)*/
+}
+
+/*aqui estamos criando um elemento novo mas pelo css*/
+.fundo-video::after {
+    content: ""; /* aqui ele fica vazio...*/
+    height: 100vh;
+    width: 100vw;
+    position: absolute; /* aqui estamos trazendo esse elemento para frente*/
+    top: 0; /* estamos zerando em cima */
+    left: 0; /* estamos zerando em na esquerda */
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,1) 100%); /*aqui estamos colocando um gradiente para ficar as laterais escuras, e o centro mais visível*/
+}
+
+.modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(52, 52, 50, 0.749); /* rgba da transparência*/
+    opacity: 0;
+    visibility: hidden;
+}
+
+.conteudo-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* aqui o x fica centralizado em cima do elemento*/
+    height: 100vh;
+    border-radius: 5px;
+    gap: 15px; /* aqui distânciamos o x do elemento */
+}
+
+.fechar-modal {
+    background-color: #ffffff;
+    color: #f03017;
+    font-weight: bold;
+    font-size: 20px;
+    width: 40px;
+    text-align: center; /* alinha o conteúdo no centro do elemento */
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.modal iframe {
+    border-width: 0;
+    width: 640px;
+    height: 360px;
+}
+
+.modal.aberto {
+    opacity: 1;
+    visibility: visible;
+}
